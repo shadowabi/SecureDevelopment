@@ -1,0 +1,115 @@
+<html>
+	<head>
+		<meta charset = "utf-8"></meta>
+		<title>UnsafeUpload</title>
+		<link rel = "stylesheet" type = "text/css" href = "css/normal.css"></link>
+		<script type = "text/javascript" src = "http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script> <!--jquery-->
+		<script type = "text/javascript" src = "js/publicfunc.js" async = "async"></script>
+	</head>
+	<body>
+		<div class = "Container">
+			<div class = "Success">
+				<p>文件只是简单地检测后缀名和MIME类型，容易被绕过</p>
+				<p>对上传的文件进行白名单检测的同时，应该隐藏文件上传的真实目录和修改文件后缀名，防止webshell的执行</p>
+				<pre>
+$rand = bin2hex(random_bytes(10)); //生成随机数字和字母的组合
+if (!file_exists('../../SecureDevelopment/uploads/'))
+{
+	mkdir('../../SecureDevelopment/uploads/'.$rand);
+}	
+
+$filename = $_FILES['file']['name'];
+$temp_name = $_FILES['file']['tmp_name'];
+if (move_uploaded_file($temp_name, '../../SecureDevelopment/uploads/'.$rand."/".$filename.'.jpg'))
+{
+	echo "&lt;p&gt;文件“"."/".$rand."/".$filename.'.jpg'."”已保存&lt;/p&gt;";
+	die();
+}
+else
+{
+	$error = $_FILES['file']['error'];
+	echo "&lt;p&gt;文件上传失败,错误码：$error&lt;/p&gt;";
+	die();
+}
+				</pre>
+				<input type = "submit" onclick = "window.location.href = 'index.html'" value = "下一关"></input>
+			</div>
+			<div class = "Code">
+				<pre>
+&lt;?php
+	$error = $_FILES['file']['error'];
+	if($error != 0)
+	{
+		echo "&lt;p&gt;文件上传失败,错误码：$error&lt;/p&gt;";
+		Free($error,$_FILES['file']);
+		die();
+	}
+
+	if(!in_array($_FILES['file']['type'], array('image/jpg','image/jpeg','image/png')))
+	{
+		echo "&lt;p&gt;上传的文件类型只能是jpg,jpeg,png&lt;/p&gt;";
+		Free($_FILES['file']);
+		die();
+	}
+
+	if (!file_exists('../../SecureDevelopment/uploads/'))
+	{
+		mkdir('../../SecureDevelopment/uploads/');
+	}	
+
+	$filename = $_FILES['file']['name'];
+	$temp_name = $_FILES['file']['tmp_name'];
+	if (move_uploaded_file($temp_name, '../../SecureDevelopment/uploads/'.$filename))
+	{
+		echo "&lt;p&gt;文件保存在：uploads/$filename&lt;/p&gt;";
+		Free($error,$_FILES['file'],$filename,$temp_name);
+		die();
+	}
+	else
+	{
+		$error = $_FILES['file']['error'];
+		echo "&lt;p&gt;文件上传失败,错误码：$error&lt;/p&gt;";
+		Free($error,$_FILES['file'],$filename,$temp_name);
+		die();
+	}
+?&gt;	
+				</pre>
+			</div>
+			<div class = "Challenge">
+				<br>
+				<form action = "#" enctype="multipart/form-data"  method = "post" id = "UploadForm" name = "UploadForm">
+					<input class = "uploadfile" type = "file"  name = "file" onchange = "checkFileExt(this.value)" />
+				</form>
+				<span id = "Notice"></span>
+				<p id = "Tip">Tip:不只是后端有检测哦</p>
+				<button id = "Upload">开始上传</button>
+				<span id = "Flag">
+					<span id = "Notice"></span>
+					<p>FLAG：<input name = "Flag" type = "textarea" id = "Flag"></input>&nbsp;&nbsp;<input id = "Submit2" type = "submit" value = "submit" onclick = "GetFlag()"></input></p>
+				</span>
+				<script>
+					function checkFileExt(filename)
+					{
+						var Fflag = false;
+						var arr = ["jpg","png"];
+						var index = filename.lastIndexOf(".");
+						var ext = filename.substr(index+1);
+						for(var i=0;i<arr.length;i++)
+						{
+							if(ext == arr[i])
+							{
+								Fflag = true;
+								break;
+							}
+						}
+						if(!Fflag)
+						{
+							alert("上传的文件不符合要求，请重新选择！");
+							location.reload(true);
+						}
+					}
+				</script>
+			</div>
+		</div>
+	</body>
+</html>

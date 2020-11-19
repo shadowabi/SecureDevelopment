@@ -1,0 +1,54 @@
+<html>
+	<head>
+		<meta charset = "utf-8"></meta>
+		<title>ImgXss</title>
+		<link rel = "stylesheet" type = "text/css" href = "css/normal.css"></link>
+		<script type = "text/javascript" src = "http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script> <!--jquery-->
+		<script type = "text/javascript" src = "js/publicfunc.js" async = "async"></script>
+		<script type = "text/javascript">
+			var  flag = 0;
+			window.prompt = function(str)
+			{
+				flag = 1;
+				if(flag === 1)
+				{
+					$(".Success").css("visibility","visible");
+				}
+			};
+		</script>
+	</head>
+	<body onload = "PostID()">
+		<div class = "Container">
+			<div class = "Success">
+				<p>该程序的漏洞为，变量$imgName没做过滤，直接拼接到html语句中，造成xss反射型注入</p>
+				<p>对变量进行编码即可</p>
+				<pre>
+function PurifyData($data)
+{
+	$data = trim($data);
+	$data = stripslashes($data);
+	$data = htmlspecialchars($data,ENT_QUOTES);	
+	$data = filter_var($data,FILTER_SANITIZE_STRING);
+	$data = filter_var($data,FILTER_SANITIZE_MAGIC_QUOTES);
+	return strip_tags($data);
+}
+if(isset($_GET["imgName"]) && !empty($_GET["imgName"])) echo "&ltimg src = 127.0.0.1/SecureDevelopment/".PurifyData($_GET["imgName"])."&gt&lt/img&gt";
+				</pre>
+				<input type = "submit" onclick = "window.location.href = 'XssBlind.html'" value = "下一关"></input>
+			</div>
+			<div class = "Code">
+				<pre>
+&lt;php
+	if(isset($_GET["imgName"]) && !empty($_GET["imgName"])) echo "&ltimg src = 127.0.0.1/SecureDevelopment/".$_GET["imgName"]."&gt&lt/img&gt";
+?&gt;
+				</pre>
+			</div>
+			<div class = "Challenge">
+				<span id = "Notice2">
+					<img src = "/SecureDevelopment/other/kali.jpg" style = "width: 100%;height: 100%;"></img>
+				</span>
+				<p id = "Tip" style = "color: white;right: 10px;">Tip:弹出prompt(1)就通关啦</p>
+			</div>
+		</div>
+	</body>
+</html>

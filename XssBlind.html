@@ -1,0 +1,63 @@
+	<html>
+	<head>
+		<meta charset = "utf-8"></meta>
+		<title>XssBlind</title>
+		<link rel = "stylesheet" type = "text/css" href = "css/normal.css"></link>
+		<script type = "text/javascript" src = "http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script> <!--jquery-->
+		<script type = "text/javascript" src = "js/publicfunc.js" async = "async"></script>
+	</head>
+	<body>
+		<div class = "Container">
+			<div class = "Code">
+				<pre>
+&lt;?php
+	$conn = mysqli_connect("127.0.0.1","root","","Secure_Development");
+	mysqli_set_charset($conn,'utf-8');
+
+	//获取最大ID
+	function maxId()
+    {
+        global $conn;
+        $sql = "select * from xssblind group by id having(max(id));";
+        $result = mysqli_query($conn, $sql);
+        if ($result->num_rows > 0) 
+        {
+            while($row = $result->fetch_assoc())
+            {
+                $maxID = (int)$row["id"];
+            }
+        }
+        else $maxID = 0;
+        $result->free();
+        return $maxID;
+    }
+    
+    if(isset($_POST["content"]) && !empty($_POST["content"]) && isset($_POST["name"]) && !empty($_POST["name"]))
+    {
+        $ID = maxId() + 1; //id自增
+        $content = $_POST['content'];
+        $name = $_POST['name'];
+        $time = date('Y-m-d g:i:s');
+        $stmt = $conn -> prepare("INSERT INTO xssblind (id,time,content,name) VALUES (?,?,?,?);");
+        $stmt -> bind_param('isss',$ID,$time,$content,$name);
+        $stmt -> execute();
+        $conn -> close();
+        die();
+    }
+?&gt;	
+				</pre>
+			</div>
+			<div class = "Challenge" style = "overflow: auto;">
+				<h1>留言板</h1>
+				<form action = "#" method="POST" name = "FormSubmit" id = "FormSubmit">
+					<label>名字：</label>
+					<input class = "name" type = "text" name = "name"/>
+					<br><br>
+					<textarea name = "content" rows = "5" cols = "40"></textarea>
+					<br><br>
+					<input style = "font-size: 2em;cursor: pointer;margin-bottom: 5px;" type = "submit" value = "留言" onclick = "window.location.href = 'XssBlindAdmin.html'"></input>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>

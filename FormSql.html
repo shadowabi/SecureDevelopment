@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "utf-8"></meta>
+		<title>FormSql</title>
+		<link rel = "stylesheet" type = "text/css" href = "css/normal.css"></link>
+		<script type = "text/javascript" src = "http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script> <!--jquery-->
+		<script type = "text/javascript" src = "js/publicfunc.js" async = "async"></script>
+	</head>
+	<body>
+		<div class = "Container">
+			<div class = "Success">
+				<p>该程序的漏洞为，变量$username、$password在传入sql的时候没有做相应的过滤，直接拼接到sql语句中，造成sql注入</p>
+				<p>可采用预编译语句的方式防止sql注入</p>
+				<pre>
+$stmt = $conn->prepare("SELECT * FROM users where username = ? and password = ?");
+$stmt -> bind_param('ss',$username,$password);
+$stmt -> execute();
+$stmt -> bind_result($id,$username,$password);
+if ($stmt -> fetch()) echo "&lt;span id = 'Notice'>Welcome $username !&lt;/span&gt;";
+else echo "&lt;span id = 'Notice'>Username or Password error！&lt;/span&gt;";
+$stmt -> close();
+$conn -> close();
+				</pre>
+				<input type = "submit" onclick = "window.location.href = 'IdSql.html'" value = "下一关"></input>
+			</div>
+			<div class = "Code">
+				<pre>
+&lt;?php
+	$username = $password = "";$flag = 0;
+	
+	function PurifyData2($data)
+	{
+		$data = trim($data);
+		$data = stripslashes($data);
+		$data = htmlspecialchars($data);	
+		return strip_tags($data);
+	}
+	
+	if (isset($_POST["username"]) && isset($_POST["password"]))
+	{		
+		$username = PurifyData($_POST["username"]);
+		$password = PurifyData($_POST["password"]);
+	}
+
+	if(!empty($username) &&  !empty($password))
+	{
+		$conn = mysqli_connect("127.0.0.1","root","","Secure_Development");
+		$sql = "select * from users where username = '$username' and password = '$password'";
+		$result = mysqli_query($conn, $sql);
+		if (!$result)
+		{
+			printf("Error: %s\n", mysqli_error($conn));
+		}
+		$row = mysqli_fetch_array($result,MYSQLI_NUM);
+		if (!empty($row[0])) echo "&lt;span id = 'Notice'>Welcome $row[1]！Your password is $row[2]&lt;/span&gt;";
+		else echo "&lt;span id = 'Notice'>Username or Password error！&lt;/span&gt;";
+		$conn->close();
+	}
+?&gt;
+				</pre>
+			</div>	
+			<div class = "Challenge">
+				<H1>表单挑战</H1>
+				<form action = "#" method = "post" name = "FormSubmit" id = "FormSubmit">
+					<p>用户名：<input name = "username" type = "textarea"></input></p>
+					<p>&nbsp;&nbsp;密码：&nbsp;<input name = "password" type = "password"></input></p>
+					<input id = "Submit" type = "submit" value = "submit"></input>
+					<p id = "Tip">Tip:有一个测试用户guest:guest</p>
+				</form>
+				<span id = "Flag">
+					<span id = "Notice"></span>
+					<p>FLAG：<input name = "Flag" type = "textarea" id = "Flag"></input>&nbsp;&nbsp;<input id = "Submit2" type = "submit" value = "submit" onclick = "GetFlag()"></input></p>
+				</span>
+			</div>
+		</div>
+	</body>
+</html>

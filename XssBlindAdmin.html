@@ -1,0 +1,57 @@
+<html>
+	<head>
+		<meta charset = "utf-8"></meta>
+		<title>XssBlind</title>
+		<link rel = "stylesheet" type = "text/css" href = "css/normal.css"></link>
+		<script type = "text/javascript" src = "http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script> <!--jquery-->
+		<script type = "text/javascript" src = "js/publicfunc.js" async = "async"></script>
+		<script type = "text/javascript">
+			var  flag = 0;
+			window.alert = function(str)
+			{
+				flag = 1;
+				if(flag === 1)
+				{
+					$(".Success").css("visibility","visible");
+				}
+			};
+		</script>
+	</head>
+	<body onload = "$('#FormSubmit').submit();">
+		<div class = "Container">
+			<div class = "Success">
+				<p>变量sql未经过滤，直接拼接入数据库，并通过本页面解析为html，造成XSS的Stored型注入，同时也属于XSS盲打</p>
+				<p>可采用编码的方式防止XSS注入</p>
+				<pre>
+function PurifyData($data)
+{
+	$data = trim($data);
+	$data = stripslashes($data);
+	$data = htmlspecialchars($data,ENT_QUOTES);	
+	$data = filter_var($data,FILTER_SANITIZE_STRING);
+	$data = filter_var($data,FILTER_SANITIZE_MAGIC_QUOTES);
+	return strip_tags($data);
+}
+
+$conn = mysqli_connect("127.0.0.1","root","","Secure_Development");
+if(isset($_POST["content"]) && !empty($_POST["content"]) && isset($_POST["name"]) && !empty($_POST["name"]))
+{
+	$content = PurifyData($_POST['content']);
+	$name = PurifyData($_POST['name']);
+}
+				</pre>
+				<input type = "submit" onclick = "window.location.href = 'UnsafeUpload.html'" value = "下一关"></input>
+			</div>
+			<div class = "Code">
+				<form action = "#" method = "POST" style = "display: none;" name = "FormSubmit" id = "FormSubmit">
+					<input name = "query" type = "textarea" value = "1"></input>
+					<input name = "id" type= "textarea" id = "id"></input>
+				</form>
+				<span id = "Notice"></span>
+				<p id = "Tip">Tip:弹个alert(1)就通关了
+				</br>
+				<a href = "XssBlind.html">退出</a></p>
+			</div>
+		</div>
+	</body>
+</html>
