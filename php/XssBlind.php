@@ -1,7 +1,6 @@
 <?php
     require_once "publicfunc.php";
 
-    $conn = mysqli_connect("127.0.0.1","root","","test");
     mysqli_set_charset($conn,'utf-8');
     
     //获取最大ID

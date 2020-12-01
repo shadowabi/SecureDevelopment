@@ -8,7 +8,7 @@
         $conn -> query($query);
         $query = "update xssblind set id = id - 1 where id > $id";
         $conn -> query($query);
-        Free($_POST['id'], $id, $query);
+        Free($_POST['id'], $id);
     }
 
     if (isset($_POST['query']) && $_POST['query'] === "1")
