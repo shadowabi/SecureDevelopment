@@ -13,6 +13,7 @@ XAMPP：https://www.apachefriends.org/zh_cn/index.html
 https://www.cnblogs.com/5h4d0w
 
 # 开发日志： 
+2020.12.2 精简代码，减少不必要的POST  
 2020.12.1 修复bug  
 2020.11.19 代码重构  
 2020.9.22 完成第五关 UnsafeUpload.php，并更新之前的代码  
