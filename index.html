@@ -3,19 +3,24 @@
 	<head>
 		<meta charset = "utf-8"></meta>
 		<style type = "text/css">
-			.Total
+			body
 			{
 			text-align: center;
 			vertical-align: middle;
 			position: absolute;
-			bottom: 50%;
-			left: 23%;
+			top: 30%;
+			left: 13%;
+			max-width: 100%;
+			width: 1100px;
+			height: 250px;
+			max-height: 100%;
 			font-family: "Microsoft YaHei", 微软雅黑, sans-serif;
 			border: 1px solid #d1d1d1;
 			padding: 1px 7px 10px 7px;
+			overflow: auto;
 			}
 			
-			.Total input
+			input
 			{
 				font-size: 2em;
 				border-radius: 8px;
@@ -25,20 +30,27 @@
 				cursor: pointer;
 			}
 
-		#Tip
-		{
-			text-align: right;
-			margin-bottom: 0;
-		}			
+			#Tip
+			{
+				position: absolute;
+				bottom: 0;
+				right: 1%;
+			}
+
+			#Rule
+			{
+				position: absolute;
+				bottom: 0;
+				left: 1%;
+			}
 		</style>
 	</head>
 	<body>
-		<div class = "Total">
-			<H1 id = "title">这是一个用来学习安全开发的小项目</H1>
-			<p id = "text">本项目会以贴出不安全代码，然后要求玩家构造出相应的payload，再出现通关答案（即安全的代码应该要注意哪些）</p>
-			</br>
-			<input type = "submit" onclick="window.location.href='FormSql.html'" value = "Just do it"</input>
-			<p id = "Tip">Made by:Sh4d0w_小白</p>
-		</div>
+		<H1>这是一个用来学习安全开发的小游戏</H1>
+		<p>本游戏会以贴出不安全代码，然后要求玩家构造出相应的payload，再出现通关答案（即安全的代码应该要注意哪些）</p>
+		<p id = "Rule">规则：本游戏禁止使用开发人员工具(F12)对代码进行审计</p>
+		</br>
+		<input type = "submit" onclick = "window.location.href = 'FormSql.html'" value = "Just do it"</input>
+		<p id = "Tip">Made by:Sh4d0w_小白</p>
 	</body>
 </html>

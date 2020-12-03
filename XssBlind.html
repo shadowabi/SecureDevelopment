@@ -1,4 +1,5 @@
-	<html>
+<!DOCTYPE html>
+<html>
 	<head>
 		<meta charset = "utf-8"></meta>
 		<title>XssBlind</title>
@@ -7,9 +8,8 @@
 		<script type = "text/javascript" src = "js/publicfunc.js" async = "async"></script>
 	</head>
 	<body>
-		<div class = "Container">
-			<div class = "Code">
-				<pre>
+		<div class = "Code">
+			<pre>
 &lt;?php
 	$conn = mysqli_connect("127.0.0.1","root","","Secure_Development");
 	mysqli_set_charset($conn,'utf-8');
@@ -45,19 +45,18 @@
         die();
     }
 ?&gt;	
-				</pre>
-			</div>
-			<div class = "Challenge" style = "overflow: auto;">
-				<h1>留言板</h1>
-				<form action = "#" method="POST" name = "FormSubmit" id = "FormSubmit">
-					<label>名字：</label>
-					<input class = "name" type = "text" name = "name"/>
-					<br><br>
-					<textarea name = "content" rows = "5" cols = "40"></textarea>
-					<br><br>
-					<input style = "font-size: 2em;cursor: pointer;margin-bottom: 5px;" type = "submit" value = "留言" onclick = "window.location.href = 'XssBlindAdmin.html'"></input>
-				</form>
-			</div>
+			</pre>
+		</div>
+		<div class = "Challenge" style = "overflow: auto;">
+			<h1>留言板</h1>
+			<form action = "#" method="POST" name = "FormSubmit" id = "FormSubmit">
+				<label>名字：</label>
+				<input class = "name" type = "text" name = "name"/>
+				<br><br>
+				<textarea name = "content" rows = "5" cols = "40"></textarea>
+				<br><br>
+				<input style = "font-size: 2em;cursor: pointer;margin-bottom: 5px;" type = "submit" value = "留言" onclick = "window.location.href = 'XssBlindAdmin.html'"></input>
+			</form>
 		</div>
 	</body>
 </html>

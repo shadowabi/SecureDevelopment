@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 	<head>
 		<meta charset = "utf-8"></meta>
@@ -7,11 +8,10 @@
 		<script type = "text/javascript" src = "js/publicfunc.js" async = "async"></script>
 	</head>
 	<body>
-		<div class = "Container">
-			<div class = "Success">
-				<p>文件只是简单地检测后缀名和MIME类型，容易被绕过</p>
-				<p>对上传的文件进行白名单检测的同时，应该隐藏文件上传的真实目录和修改文件后缀名，防止webshell的执行</p>
-				<pre>
+		<div class = "Success">
+			<p>文件只是简单地检测后缀名和MIME类型，容易被绕过</p>
+			<p>对上传的文件进行白名单检测的同时，应该隐藏文件上传的真实目录和修改文件后缀名，防止webshell的执行</p>
+			<pre>
 $rand = bin2hex(random_bytes(10)); //生成随机数字和字母的组合
 if (!file_exists('../../SecureDevelopment/uploads/'))
 {
@@ -31,11 +31,32 @@ else
 	echo "&lt;p&gt;文件上传失败,错误码：$error&lt;/p&gt;";
 	die();
 }
-				</pre>
-				<input type = "submit" onclick = "window.location.href = 'index.html'" value = "下一关"></input>
-			</div>
-			<div class = "Code">
-				<pre>
+			</pre>
+			<input type = "submit" onclick = "window.location.href = 'index.html'" value = "下一关"></input>
+		</div>
+		<div class = "Code">
+			<pre>
+&lt;input class = "uploadfile" type = "file"  name = "file" accept = "image/jpeg, image/png" onchange = "checkFileExt(this.value)" /&gt;
+function checkFileExt(filename)
+{
+	var Fflag = false;
+	var arr = ["jpg","png"];
+	var index = filename.lastIndexOf(".");
+	var ext = filename.substr(index+1);
+	for(var i=0;i&lt;arr.length;i++)
+	{
+		if(ext == arr[i])
+		{
+			Fflag = true;
+			break;
+		}
+	}
+	if(!Fflag)
+	{
+		alert("上传的文件不符合要求，请重新选择！");
+		location.reload(true);
+	}
+}
 &lt;?php
 	$error = $_FILES['file']['error'];
 	if($error != 0)
@@ -73,43 +94,43 @@ else
 		die();
 	}
 ?&gt;	
-				</pre>
-			</div>
-			<div class = "Challenge">
-				<br>
-				<form action = "#" enctype="multipart/form-data"  method = "post" id = "UploadForm" name = "UploadForm">
-					<input class = "uploadfile" type = "file"  name = "file" onchange = "checkFileExt(this.value)" />
-				</form>
+			</pre>
+		</div>
+		<div class = "Challenge">
+			<br>
+			<form action = "#" enctype = "multipart/form-data"  method = "post" id = "UploadForm" name = "UploadForm">
+				<input class = "uploadfile" type = "file"  name = "file" accept = "image/jpeg, image/png" onchange = "checkFileExt(this.value)" />
+			</form>
+			<br>
+			<span id = "Notice"></span>
+			<p id = "Tip">Tip:不只是后端有检测哦</p>
+			<button id = "Upload">开始上传</button>
+			<span id = "Flag">
 				<span id = "Notice"></span>
-				<p id = "Tip">Tip:不只是后端有检测哦</p>
-				<button id = "Upload">开始上传</button>
-				<span id = "Flag">
-					<span id = "Notice"></span>
-					<p>FLAG：<input name = "Flag" type = "textarea" id = "Flag"></input>&nbsp;&nbsp;<input id = "Submit2" type = "submit" value = "submit" onclick = "GetFlag()"></input></p>
-				</span>
-				<script>
-					function checkFileExt(filename)
+				<p>FLAG：<input name = "Flag" type = "textarea" id = "Flag"></input>&nbsp;&nbsp;<input id = "Submit2" type = "submit" value = "submit" onclick = "GetFlag()"></input></p>
+			</span>
+			<script>
+				function checkFileExt(filename)
+				{
+					var Fflag = false;
+					var arr = ["jpg","png"];
+					var index = filename.lastIndexOf(".");
+					var ext = filename.substr(index+1);
+					for(var i=0;i<arr.length;i++)
 					{
-						var Fflag = false;
-						var arr = ["jpg","png"];
-						var index = filename.lastIndexOf(".");
-						var ext = filename.substr(index+1);
-						for(var i=0;i<arr.length;i++)
+						if(ext == arr[i])
 						{
-							if(ext == arr[i])
-							{
-								Fflag = true;
-								break;
-							}
-						}
-						if(!Fflag)
-						{
-							alert("上传的文件不符合要求，请重新选择！");
-							location.reload(true);
+							Fflag = true;
+							break;
 						}
 					}
-				</script>
-			</div>
+					if(!Fflag)
+					{
+						alert("上传的文件不符合要求，请重新选择！");
+						location.reload(true);
+					}
+				}
+			</script>
 		</div>
 	</body>
 </html>

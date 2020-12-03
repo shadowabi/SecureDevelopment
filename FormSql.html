@@ -8,11 +8,10 @@
 		<script type = "text/javascript" src = "js/publicfunc.js" async = "async"></script>
 	</head>
 	<body>
-		<div class = "Container">
-			<div class = "Success">
-				<p>该程序的漏洞为，变量$username、$password在传入sql的时候没有做相应的过滤，直接拼接到sql语句中，造成sql注入</p>
-				<p>可采用预编译语句的方式防止sql注入</p>
-				<pre>
+		<div class = "Success">
+			<p>该程序的漏洞为，变量$username、$password在传入sql的时候没有做相应的过滤，直接拼接到sql语句中，造成sql注入</p>
+			<p>可采用预编译语句的方式防止sql注入</p>
+			<pre>
 $stmt = $conn->prepare("SELECT * FROM users where username = ? and password = ?");
 $stmt -> bind_param('ss',$username,$password);
 $stmt -> execute();
@@ -21,11 +20,11 @@ if ($stmt -> fetch()) echo "&lt;span id = 'Notice'>Welcome $username !&lt;/span&
 else echo "&lt;span id = 'Notice'>Username or Password error！&lt;/span&gt;";
 $stmt -> close();
 $conn -> close();
-				</pre>
-				<input type = "submit" onclick = "window.location.href = 'IdSql.html'" value = "下一关"></input>
-			</div>
-			<div class = "Code">
-				<pre>
+			</pre>
+			<input type = "submit" onclick = "window.location.href = 'IdSql.html'" value = "下一关"></input>
+		</div>
+		<div class = "Code">
+			<pre>
 &lt;?php
 	$username = $password = "";$flag = 0;
 	
@@ -58,21 +57,20 @@ $conn -> close();
 		$conn->close();
 	}
 ?&gt;
-				</pre>
-			</div>	
-			<div class = "Challenge">
-				<H1>表单挑战</H1>
-				<form action = "#" method = "post" name = "FormSubmit" id = "FormSubmit">
-					<p>用户名：<input name = "username" type = "textarea"></input></p>
-					<p>&nbsp;&nbsp;密码：&nbsp;<input name = "password" type = "password"></input></p>
-					<input id = "Submit" type = "submit" value = "submit"></input>
-					<p id = "Tip">Tip:有一个测试用户guest:guest</p>
-				</form>
-				<span id = "Flag">
-					<span id = "Notice"></span>
-					<p>FLAG：<input name = "Flag" type = "textarea" id = "Flag"></input>&nbsp;&nbsp;<input id = "Submit2" type = "submit" value = "submit" onclick = "GetFlag()"></input></p>
-				</span>
-			</div>
+			</pre>
+		</div>	
+		<div class = "Challenge">
+			<H1>表单挑战</H1>
+			<form action = "#" method = "post" name = "FormSubmit" id = "FormSubmit">
+				<p>用户名：<input name = "username" type = "textarea"></input></p>
+				<p>&nbsp;&nbsp;密码：&nbsp;<input name = "password" type = "password"></input></p>
+				<input id = "Submit" type = "submit" value = "submit"></input>
+				<p id = "Tip">Tip:有一个测试用户guest:guest</p>
+			</form>
+			<span id = "Flag">
+				<span id = "Notice"></span>
+				<p>FLAG：<input name = "Flag" type = "textarea" id = "Flag"></input>&nbsp;&nbsp;<input id = "Submit2" type = "submit" value = "submit" onclick = "GetFlag()"></input></p>
+			</span>
 		</div>
 	</body>
 </html>

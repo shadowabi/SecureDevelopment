@@ -8,9 +8,8 @@
 		<script type = "text/javascript" src = "js/publicfunc.js" async = "async"></script>
 	</head>
 	<body onload = "PostID()">
-		<div class = "Container">
-			<div class = "Code">
-				<pre>
+		<div class = "Code">
+			<pre>
 &lt;php
 	$id = (!isset($_GET["id"]))?1:$_GET["id"] ;
 	$conn = mysqli_connect("127.0.0.1","root","","Secure_Development");
@@ -30,34 +29,33 @@
 		$result -> free();
         $conn -> close();
 ?&gt;
-				</pre>
-			</div>
-			<div class = "Challenge">
-					<span id = "Notice2"></span>
-				<HR>
-				<br>
-				<form action = "#" method = "post" name = "FormSubmit" id = "FormSubmit">
-					<h1>登录</h1>
-					<p>用户名：<input name = "username" type = "textarea"></input></p>
-					<p>&nbsp;&nbsp;密码：&nbsp;<input name = "password" type = "password"></input></p>
-					<input id = "Submit" type = "submit" value = "submit"></input>
-					<p id = "Tip">Tip:本关使用的表是news</p>
-				</form>
-				<span id = "Flag">
-					<span id = "Notice"></span>
-					<p>FLAG：<input name = "Flag" type = "textarea" id = "Flag"></input>&nbsp;&nbsp;<input id = "Submit2" type = "submit" value = "submit" onclick = "GetFlag()"></input></p>
-				</span>
-			</div>
+			</pre>
+		</div>
+		<div class = "Challenge">
+				<span id = "Notice2"></span>
+			<HR>
 			<br>
-			<div class = "Success">
-				<p>该程序的漏洞为，变量$id在传入sql的时候没有做相应的过滤，直接拼接到sql语句中，造成sql注入</p>
-				<p>将变量id强制转换为整形变量，防止注入</p>
-				<pre>
+			<form action = "#" method = "post" name = "FormSubmit" id = "FormSubmit">
+				<h1>登录</h1>
+				<p>用户名：<input name = "username" type = "textarea"></input></p>
+				<p>&nbsp;&nbsp;密码：&nbsp;<input name = "password" type = "password"></input></p>
+				<input id = "Submit" type = "submit" value = "submit"></input>
+				<p id = "Tip">Tip:本关使用的表是news</p>
+			</form>
+			<span id = "Flag">
+				<span id = "Notice"></span>
+				<p>FLAG：<input name = "Flag" type = "textarea" id = "Flag"></input>&nbsp;&nbsp;<input id = "Submit2" type = "submit" value = "submit" onclick = "GetFlag()"></input></p>
+			</span>
+		</div>
+		<br>
+		<div class = "Success">
+			<p>该程序的漏洞为，变量$id在传入sql的时候没有做相应的过滤，直接拼接到sql语句中，造成sql注入</p>
+			<p>将变量id强制转换为整形变量，防止注入</p>
+			<pre>
 $id = (!isset($_GET["id"]))?1:$_GET["id"] ;
 $id = (int)$id;
-				</pre>
-				<input type = "submit" onclick = "window.location.href = 'ImgXss.html'" value = "下一关"></input>
-			</div>
+			</pre>
+			<input type = "submit" onclick = "window.location.href = 'ImgXss.html'" value = "下一关"></input>
 		</div>
 	</body>
 </html>
