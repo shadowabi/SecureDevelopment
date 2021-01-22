@@ -5,7 +5,7 @@
 other中的Secure_Development.sql为相应的数据库，需要进行导入  
 index.html为主页  
 本项目用到php7和mysql，所以需要搭配相应的环境进行使用  
-如果使用XAMPP，请将本项目放在X:\XAMPP\htdocs目录下
+如果使用XAMPP，请将本项目放在X:\XAMPP\htdocs目录下  
 
 # 相关环境推荐：  
 XAMPP：https://www.apachefriends.org/zh_cn/index.html
