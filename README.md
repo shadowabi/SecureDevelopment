@@ -14,6 +14,7 @@ XAMPP：https://www.apachefriends.org/zh_cn/index.html
 https://www.cnblogs.com/5h4d0w
 
 # 开发日志： 
+2021.1.22 为适配php8对部分代码进行调整  
 2020.12.3 精简代码，删除不必要的DIV，为UnsafeUpload.html新增内容  
 修改index.html主页的内容  
 2020.12.2 精简代码，减少不必要的POST  
