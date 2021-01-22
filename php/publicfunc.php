@@ -7,7 +7,7 @@
 		$data = stripslashes($data);
 		$data = htmlspecialchars($data,ENT_QUOTES);	
 		$data = filter_var($data,FILTER_SANITIZE_STRING);
-		$data = filter_var($data,FILTER_SANITIZE_MAGIC_QUOTES);
+		//$data = filter_var($data,FILTER_SANITIZE_MAGIC_QUOTES);
 		return strip_tags($data);
 	}
 
