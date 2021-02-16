@@ -36,6 +36,8 @@ function GetFlag()
                 if (flag === 1)
                 {
                     $(".Success").css("visibility","visible");
+                    $(".Challenge").css("visibility","hidden");
+                    
                 }
             },
             error : function(xhr)

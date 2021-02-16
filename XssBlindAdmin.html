@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 	<head>
 		<meta charset = "utf-8"></meta>
@@ -12,17 +13,17 @@
 				flag = 1;
 				if(flag === 1)
 				{
-					$(".Success").css("visibility","visible");
+										$(".Challenge").css("visibility","hidden");
+          $(".Success").css("visibility","visible");
 				}
 			};
 		</script>
 	</head>
 	<body onload = "$('#FormSubmit').submit();">
-		<div class = "Container">
-			<div class = "Success">
-				<p>变量sql未经过滤，直接拼接入数据库，并通过本页面解析为html，造成XSS的Stored型注入，同时也属于XSS盲打</p>
-				<p>可采用编码的方式防止XSS注入</p>
-				<pre>
+		<div class = "Success">
+			<p>变量sql未经过滤，直接拼接入数据库，并通过本页面解析为html，造成XSS的Stored型注入，同时也属于XSS盲打</p>
+			<p>可采用编码的方式防止XSS注入</p>
+			<pre>
 function PurifyData($data)
 {
 	$data = trim($data);
@@ -39,18 +40,18 @@ if(isset($_POST["content"]) && !empty($_POST["content"]) && isset($_POST["name"]
 	$content = PurifyData($_POST['content']);
 	$name = PurifyData($_POST['name']);
 }
-				</pre>
-				<input type = "submit" onclick = "window.location.href = 'UnsafeUpload.html'" value = "下一关"></input>
-			</div>
-			<div class = "Code">
-				<form action = "#" method = "POST" style = "display: none;" name = "FormSubmit" id = "FormSubmit">
-					<input name = "id" type= "textarea" id = "id"></input>
-				</form>
-				<span id = "Notice"></span>
-				<p id = "Tip">Tip:弹个alert(1)就通关了
-				</br>
-				<a href = "XssBlind.html">退出</a></p>
-			</div>
+			</pre>
+			<input type = "submit" onclick = "window.location.href = 'UnsafeUpload.html'" value = "下一关"></input>
+		</div>
+		<div class = "Challenge">
+			<form action = "#" method = "POST" style = "display: none;" name = "FormSubmit" id = "FormSubmit">
+				<input name = "id" type= "textarea" id = "id"></input>
+			</form>
+			<span id = "Notice"></span>
+			<p id = "Tip">Tip:弹个alert(1)就通关了
+			</br>
+			<a href = "XssBlind.html" > >> 退出</a>
+      </p>
 		</div>
 	</body>
 </html>

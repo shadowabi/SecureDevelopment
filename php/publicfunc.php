@@ -1,5 +1,5 @@
 <?php
-	$conn = mysqli_connect("127.0.0.1","root","","Secure_Development");
+	//$conn = mysqli_connect("127.0.0.1","root","","Secure_Development");
 
 	function PurifyData($data)
 	{
@@ -7,7 +7,7 @@
 		$data = stripslashes($data);
 		$data = htmlspecialchars($data,ENT_QUOTES);	
 		$data = filter_var($data,FILTER_SANITIZE_STRING);
-		$data = filter_var($data,FILTER_SANITIZE_MAGIC_QUOTES);
+		//$data = filter_var($data,FILTER_SANITIZE_MAGIC_QUOTES);
 		return strip_tags($data);
 	}
 
