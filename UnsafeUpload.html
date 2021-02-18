@@ -34,7 +34,6 @@ else
 			</pre>
 			<input type = "submit" onclick = "window.location.href = 'index.html'" value = "下一关"></input>
 		</div>
-
 			<pre id="Code">
 &lt;input class = "uploadfile" type = "file"  name = "file" accept = "image/jpeg, image/png" onchange = "checkFileExt(this.value)" /&gt;
 function checkFileExt(filename)
@@ -95,7 +94,6 @@ function checkFileExt(filename)
 	}
 ?&gt;	
 			</pre>
-
 		<div class = "Challenge">
 			<br>
 			<form action = "#" enctype = "multipart/form-data"  method = "post" id = "UploadForm" name = "UploadForm">
@@ -108,7 +106,6 @@ function checkFileExt(filename)
        <p id="text"></p>
       </form>
 			<br>
-      
 			<span id = "Notice"></span>
 			<p id = "Tip">Tip:不只是后端有检测哦</p>
 			<button id = "Upload">开始上传</button>
@@ -122,12 +119,11 @@ function checkFileExt(filename)
 				function checkFileExt(filename)
 				{
          document.getElementById('text').innerHTML = ">> "+filename;
-         
 					var Fflag = false;
 					var arr = ["jpg","png"];
 					var index = filename.lastIndexOf(".");
 					var ext = filename.substr(index+1);
-          
+
 					for(var i=0;i<arr.length;i++)
 					{
 						if(ext == arr[i])
@@ -136,7 +132,6 @@ function checkFileExt(filename)
 							break;
 						}
 					}
- 
 					if(!Fflag)
 					{
 						alert("上传的文件不符合要求，请重新选择！");
