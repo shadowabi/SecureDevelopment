@@ -48,14 +48,26 @@ $conn -> close();
 		$conn = mysqli_connect("127.0.0.1","root","","Secure_Development");
 		$sql = "select * from users where username = '$username' and password = '$password'";
 		$result = mysqli_query($conn, $sql);
-		if (!$result)
-		{
-			printf("Error: %s\n", mysqli_error($conn));
+		if($result === FALSE)
+		{ 
+			die();
 		}
-		$row = mysqli_fetch_array($result,MYSQLI_NUM);
-		if (!empty($row[0])) echo "&lt;span id = 'Notice'>Welcome $row[1]！Your password is $row[2]&lt;/span&gt;";
-		else echo "&lt;span id = 'Notice'>Username or Password error！&lt;/span&gt;";
-		$conn->close();
+        if ($result->num_rows > 0) 
+        {
+			$row = null;
+            while($row = $result->fetch_assoc())
+            {
+                echo "Welcome $row[username]！Your password is $row[password]";
+				if ($row["id"] == "1")
+				{
+					FlagShow();
+					break;
+				}
+            }
+        }
+		else echo "Username or Password error！";
+        mysqli_free_result($result);
+        mysqli_close($conn);
 	}
 ?&gt;
 			</pre>
