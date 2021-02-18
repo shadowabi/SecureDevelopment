@@ -1,7 +1,5 @@
 <?php
-    require_once "publicfunc.php";
-
-    mysqli_set_charset($conn,'utf-8');
+    require_once "publicfunc.php"；
     
     //获取最大ID
     function maxId()
@@ -25,7 +23,7 @@
     {
         $ID = maxId() + 1; //id自增
         $content = $_POST['content'];
-        $name = $_POST['name'];
+        $name = PurifyData($_POST['name']);
         $time = date('Y-m-d g:i:s');
         $stmt = $conn -> prepare("INSERT INTO xssblind (id,time,content,name) VALUES (?,?,?,?);");
         $stmt -> bind_param('isss',$ID,$time,$content,$name);

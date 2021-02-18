@@ -35,9 +35,8 @@ function GetFlag()
                 flag = Number(result);
                 if (flag === 1)
                 {
-                    $(".Success").css("visibility","visible");
-                    $(".Challenge").css("visibility","hidden");
-                    
+					$(".Challenge").css("visibility","hidden");
+                    $(".Success").css("visibility","visible");  
                 }
             },
             error : function(xhr)

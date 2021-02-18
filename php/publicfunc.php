@@ -1,5 +1,7 @@
 <?php
-	//$conn = mysqli_connect("127.0.0.1","root","","Secure_Development");
+	$conn = mysqli_connect("127.0.0.1","root","","Secure_Development");
+	date_default_timezone_set("Asia/Shanghai"); //设置时间为中国时区
+	mysqli_set_charset($conn, 'utf-8'); //设置MYSQL为UTF-8
 
 	function PurifyData($data)
 	{
