@@ -13,7 +13,8 @@
 				flag = 1;
 				if(flag === 1)
 				{
-					$(".Success").css("visibility","visible");
+										$(".Challenge").css("visibility","hidden");
+          $(".Success").css("visibility","visible");
 				}
 			};
 		</script>
@@ -42,14 +43,15 @@ if(isset($_POST["content"]) && !empty($_POST["content"]) && isset($_POST["name"]
 			</pre>
 			<input type = "submit" onclick = "window.location.href = 'UnsafeUpload.html'" value = "下一关"></input>
 		</div>
-		<div class = "Code">
+		<div class = "Challenge">
 			<form action = "#" method = "POST" style = "display: none;" name = "FormSubmit" id = "FormSubmit">
 				<input name = "id" type= "textarea" id = "id"></input>
 			</form>
 			<span id = "Notice"></span>
 			<p id = "Tip">Tip:弹个alert(1)就通关了
 			</br>
-			<a href = "XssBlind.html">退出</a></p>
+			<a href = "XssBlind.html" > >> 退出</a>
+      </p>
 		</div>
 	</body>
 </html>

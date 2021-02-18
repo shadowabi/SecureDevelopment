@@ -1,5 +1,5 @@
 <?php
-	$conn = mysqli_connect("127.0.0.1","root","","Secure_Development");
+	//$conn = mysqli_connect("127.0.0.1","root","","Secure_Development");
 
 	function PurifyData($data)
 	{

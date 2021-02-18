@@ -8,8 +8,7 @@
 		<script type = "text/javascript" src = "js/publicfunc.js" async = "async"></script>
 	</head>
 	<body>
-		<div class = "Code">
-			<pre>
+			<pre id="Code">
 &lt;?php
 	$conn = mysqli_connect("127.0.0.1","root","","Secure_Development");
 	mysqli_set_charset($conn,'utf-8');
@@ -46,16 +45,19 @@
     }
 ?&gt;	
 			</pre>
-		</div>
 		<div class = "Challenge" style = "overflow: auto;">
-			<h1>留言板</h1>
+     <div class="biaoti">
+			<span class="biaodan"><svg t="1612495963573" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="27491" width="64" height="64"><path d="M511.9232 928c-8.2688 0-16.3584-3.072-22.7072-9.4464l-96-96a31.872 31.872 0 0 1 0-45.2352c12.544-12.544 32.6912-12.544 45.2608 0l73.4464 73.472 73.4464-73.472a32 32 0 0 1 22.7072-9.472H832c17.7152 0 32-14.2592 32-31.9744V223.9488c0-17.536-14.2848-32-32-32H192.128c-17.536 0-32 14.464-32 32v511.9232c0 17.7152 14.464 32 32 32h96c17.7152 0 32 14.2848 32 32s-14.2848 32-32 32h-96a96 96 0 0 1-95.9744-96V224a96 96 0 0 1 96-96H832a96 96 0 0 1 96 96v511.8976a96 96 0 0 1-96 96h-210.8928l-86.528 86.6816c-6.1696 6.1952-14.4384 9.472-22.6816 9.472z" fill="#2ecc71" p-id="27492"></path><path d="M723.4048 691.2H326.1952c-12.16 0-20.2752-8.1152-20.2752-20.2752v-48.64c0-64.8448 52.6848-119.552 119.552-119.552h198.656c64.8192 0 119.552 52.6848 119.552 119.552v48.64a20.3008 20.3008 0 0 1-20.2752 20.2752z m-376.96-40.5248h356.7104v-28.3904a79.1296 79.1296 0 0 0-79.0528-79.0272h-198.6048a79.1296 79.1296 0 0 0-79.0528 79.0272v28.3904z m178.3552-176.3328c-64.8448 0-119.552-52.6848-119.552-119.552 0-66.8928 54.7072-119.6032 119.552-119.6032s119.552 52.7104 119.552 119.5776c0 66.8928-54.7072 119.5776-119.552 119.5776z m0-198.6048a79.1296 79.1296 0 0 0-79.0528 79.0272c0 42.5728 36.5056 79.0528 79.0528 79.0528a79.1296 79.1296 0 0 0 79.0528-79.0528 79.1296 79.1296 0 0 0-79.0528-79.0272z" fill="#2ecc71" p-id="27493"></path></svg>
+      留言板</span>
+      </div>
 			<form action = "#" method="POST" name = "FormSubmit" id = "FormSubmit">
-				<label>名字：</label>
-				<input class = "name" type = "text" name = "name"/>
+				<p id = "Flag">名字<svg t="1611300550240" class="icon" viewBox="0 0 1026 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3598" width="21" height="21"><path d="M857.088 224.256q28.672-28.672 69.12-28.672t69.12 28.672q29.696 28.672 29.696 68.608t-29.696 68.608l-382.976 380.928q-12.288 14.336-30.72 19.968t-38.912 4.608-40.448-8.704-34.304-22.016l-376.832-374.784q-29.696-28.672-29.696-68.608t29.696-68.608q14.336-14.336 32.256-21.504t36.864-7.168 37.376 7.168 32.768 21.504l313.344 309.248z" fill="#3498db" p-id="3599"></path></svg></p>
+
+				<input class = "name" type = "textarea" name = "name"/>
 				<br><br>
-				<textarea name = "content" rows = "5" cols = "40"></textarea>
+				<textarea name = "content" rows = "6" cols = "50"></textarea>
 				<br><br>
-				<input style = "font-size: 2em;cursor: pointer;margin-bottom: 5px;" type = "submit" value = "留言" onclick = "window.location.href = 'XssBlindAdmin.html'"></input>
+				<input type = "submit" value = "留言" onclick = "window.location.href = 'XssBlindAdmin.html'"></input>
 			</form>
 		</div>
 	</body>
