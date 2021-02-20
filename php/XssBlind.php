@@ -1,5 +1,5 @@
 <?php
-    require_once "publicfunc.php"；
+    require_once "publicfunc.php";
     
     //获取最大ID
     function maxId()
