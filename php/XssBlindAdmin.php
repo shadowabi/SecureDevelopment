@@ -23,9 +23,9 @@
 		while($row = $result->fetch_assoc())
 		{
 			echo "<tr><td>$row[id]</td>";
-			echo "<td>$row[time]</td>";
-			echo "<td>$row[content]</td>";
 			echo "<td>$row[name]</td>";
+			echo "<td>$row[content]</td>";
+			echo "<td>$row[time]</td>";
 			echo "<td><a onclick = Delete($row[id])>删除</a></td></tr>";
 			Free($row);
 		}
