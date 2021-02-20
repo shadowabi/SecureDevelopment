@@ -4,7 +4,7 @@
 # 使用说明：  
 other中的Secure_Development.sql为相应的数据库，需要进行导入  
 index.html为主页  
-本项目用到php7和mysql，所以需要搭配相应的环境进行使用  
+本项目用到php8和mysql，所以需要搭配相应的环境进行使用（兼容PHP7）  
 如果使用XAMPP，请将本项目放在X:\XAMPP\htdocs目录下  
 
 # 相关环境推荐：  
@@ -14,6 +14,8 @@ XAMPP：https://www.apachefriends.org/zh_cn/index.html
 https://www.cnblogs.com/5h4d0w
 
 # 开发日志： 
+2021.2.20 新增反调试功能  
+2021.2.18 合并PR，调整部分代码，修复bug，增强异常处理  
 2021.1.22 为适配php8对部分代码进行调整  
 2020.12.3 精简代码，删除不必要的DIV，为UnsafeUpload.html新增内容  
 修改index.html主页的内容  

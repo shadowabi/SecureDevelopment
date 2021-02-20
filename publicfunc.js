@@ -158,39 +158,3 @@ $("#Upload").click
         }    
     }
 );
-
-onkeydown = function()
-{
-	function ban()
-	{
-		window.event.cancelBubble = true;
-		window.event.returnValue = false;
-		window.event.keyCode = 0;
-		return false;
-	}
-	
-	if(window.event && (window.event.keyCode === 123 || window.event.which === 123)) 
-	{
-		ban();
-	}
-	if(window.event && window.event.ctrlKey && window.event.shiftKey && window.event.keyCode==73)
-	{
-		ban();
-	}
-}
-
-
-var element = new Image();
-Object.defineProperty
-(
-	element,'id',
-	{
-		get:function()
-		{
-			window.opener = null;
-			window.open('','_self');
-			window.close();
-		}
-	}
-);
-console.log(element);

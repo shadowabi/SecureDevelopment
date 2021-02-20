@@ -16,8 +16,13 @@
 	$result = mysqli_query($conn, $sql);
 	echo "&lt;table&gt;&lt;tr&gt;&lt;th&gt;id&lt;/th&gt;";
         echo "&lt;th&gt;username&lt;/th&gt;&lt;/tr&gt;";
+		if($result === FALSE)
+		{ 
+			die();
+		}
         if ($result->num_rows > 0) 
         {
+			$row = null;
             while($row = $result->fetch_assoc())
             {
                 echo "&lt;tr&gt;&lt;td&gt;$row[id]&lt;/td&gt;";
@@ -25,8 +30,8 @@
             }
         }
 		echo "&lt;/table&gt;";
-		$result -> free();
-        $conn -> close();
+		mysqli_free_result($result);
+        mysqli_close($conn);
 ?&gt;
 
 <div class="notice2">

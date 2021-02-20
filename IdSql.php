@@ -39,7 +39,7 @@
         echo "</table>";
         mysqli_free_result($result);
         mysqli_close($conn);
-        @Free($row, $id);
+        Free($row, $id);
         die();
     }
 ?>

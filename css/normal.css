@@ -1,9 +1,9 @@
 body
 {
-            margin: 0;
-            padding: 0;
-            font-family: sans-serif;
-            background: #34495e;
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	background: #34495e;
 }
 
 #Code
@@ -17,11 +17,12 @@ body
 	padding: 1px 7px 10px 7px;
 	overflow: auto;
 }
-h1 {
-            color: white;
-            text-transform: uppercase;
-            font-weight: 600;
-        }
+h1
+{
+	color: white;
+	text-transform: uppercase;
+	font-weight: 600;
+}
 
 pre
 {
@@ -43,33 +44,33 @@ td,th
 	color: Gray;
 }
 
-.biaoti{
-  color:#2ecc71;
-font-weight:bold; 
-font-size : 26pt;
-margin-top:30px;
+.biaoti
+{
+	color:#2ecc71;
+	font-weight:bold; 
+	font-size : 26pt;
+	margin-top:30px;
 }
 
-.biaodan{
-color:white;
+.biaodan
+{
+	color:white;
 }
 
 .Challenge
 {
-  visibility:visible;
+	visibility:visible;
 	right: 12%;
 	top: 11%;
 	overflow: auto;
-  width: 35%;
-  padding: 1px 7px 10px 7px;
-            position: absolute;
-            	bottom: 0;
+	width: 35%;
+	padding: 1px 7px 10px 7px;
+	position: absolute;
+	bottom: 0;
 	height: 72%;
-           
-            background: #191919;
-            text-align: center;
-        
-        
+	background: #191919;
+	text-align: center; 
+	color: white;
 }
 
 .Challenge input
@@ -77,55 +78,61 @@ color:white;
 
 	background-color: transparent;
 	border-style: none;
-
 	cursor: auto;	
-              border: 0;
-            background: none;
-            display: block;
-            margin: 2px auto;
-            text-align: center;
-            border: 2px solid #2ecc71;
-            padding: 4px 11px;
-            outline: none;
-            color: white;
-            border-radius: 24px;
-            transition: 0.25s;
+	border: 0;
+	background: none;
+	display: block;
+	margin: 2px auto;
+	text-align: center;
+	border: 2px solid #2ecc71;
+	padding: 4px 11px;
+	outline: none;
+	color: white;
+	border-radius: 24px;
+	transition: 0.25s;
 }
-        .Challenge input[type="textarea"],
-        .Challenge input[type="password"] {
-            border: 0;
-            background: none;
-            display: block;
-            text-align: center;
-            border: 2px solid #3498db;
-            padding: 14px 11px;
-            outline: none;
-            color: white;
-            border-radius: 24px;
-            transition: 0.25s;
-        }
-  .Challenge input[type="textarea"]:focus,
-        .Challenge input[type="password"]:focus {
-            width: 280px;
-            border-color: #2ecc71;
-        }
-         .Challenge input[type="submit"] {
-            border: 0;
-            background: none;
-            display: block;
-            margin: 20px auto;
-            text-align: center;
-            border: 2px solid #2ecc71;
-            padding: 14px 40px;
-            outline: none;
-            color: white;
-            border-radius: 24px;
-            transition: 0.25s;
-        }
 
-        .Challenge input[type="submit"]:hover {
-            background: #2ecc71;
-        }
+.Challenge input[type="textarea"],
+.Challenge input[type="password"]
+{
+	border: 0;
+	background: none;
+	display: block;
+	text-align: center;
+	border: 2px solid #3498db;
+	padding: 14px 11px;
+	outline: none;
+	color: white;
+	border-radius: 24px;
+	transition: 0.25s;
+}
+
+.Challenge input[type="textarea"]:focus,
+.Challenge input[type="password"]:focus
+{
+	width: 280px;
+	border-color: #2ecc71;
+}
+
+.Challenge input[type="submit"]
+{
+	border: 0;
+	background: none;
+	display: block;
+	margin: 20px auto;
+	text-align: center;
+	border: 2px solid #2ecc71;
+	padding: 14px 40px;
+	outline: none;
+	color: white;
+	border-radius: 24px;
+	transition: 0.25s;
+}
+
+.Challenge input[type="submit"]:hover
+{
+	background: #2ecc71;
+}
 
 
 #Notice
@@ -135,43 +142,43 @@ color:white;
 
 .Success
 {
-  
-  visibility: hidden;
-
+	visibility: hidden;
 	right: 12%;
 	top: 11%;
 	overflow: auto;
-  width: 35%;
-  padding: 1px 7px 10px 7px;
-  position: absolute;
-  bottom: 0;
+	width: 35%;
+	padding: 1px 7px 10px 7px;
+	position: absolute;
+	bottom: 0;
 	height: 72%;
-  font-weight:lighter;    
-  background: #191919;
-   text-align: left;
-   color:white;
-   
+	font-weight:lighter;    
+	background: #191919;
+	text-align: left;
+	color:white;
 }
 
 .Success input
 {
 	 border: 0;
-            background: none;
-            display: block;
-            margin: 20px auto;
-            text-align: center;
-            border: 2px solid #2ecc71;
-            padding: 14px 40px;
-            outline: none;
-            color: white;
-            border-radius: 24px;
-            transition: 0.25s;
+	background: none;
+	display: block;
+	margin: 20px auto;
+	text-align: center;
+	border: 2px solid #2ecc71;
+	padding: 14px 40px;
+	outline: none;
+	color: white;
+	border-radius: 24px;
+	transition: 0.25s;
 }
-.Success input[type="submit"]:hover {
-            background: #2ecc71;
-        }
 
-.Success p{
+.Success input[type="submit"]:hover
+{
+	background: #2ecc71;
+}
+
+.Success p
+{
   margin:20px;
   line-height : 200%; 
 }
@@ -183,18 +190,21 @@ color:white;
   padding:10px;
 }
 
-.angle{ border-left: 10px solid transparent;
-   border-bottom: 10px solid red;
-   border-right: 10px solid transparent;
-   border-top: 10px solid transparent;
-   width: 0px;
-   height: 0px;
+.angle
+{
+	border-left: 10px solid transparent;
+	border-bottom: 10px solid red;
+	border-right: 10px solid transparent;
+	border-top: 10px solid transparent;
+	width: 0px;
+	height: 0px;
 }
 
-.bug{
-color:#2ecc71;
-font-weight:bold; 
-font-size : 24pt;
+.bug
+{
+	color:#2ecc71;
+	font-weight:bold; 
+	font-size : 24pt;
 }
 
 
@@ -206,14 +216,15 @@ font-size : 24pt;
 	text-align: right;
 	right: 18px;
 	margin-bottom: 0;
-  color:#C0C0C0;
-  font-weight:lighter;
-  font-size: 5px;
-  text-decoration:underline; 
+	color:#C0C0C0;
+	font-weight:lighter;
+	#font-size: 5px;
+	text-decoration:underline; 
 }
 
-#Flag{
-color:white;
+#Flag
+{
+	color:white;
 }
 
 svg{
@@ -227,7 +238,8 @@ a
 	cursor: pointer;
 }
 
-.upload {
+.upload
+{
     padding: 4px 10px;
     height: 20px;
     width:99px;
@@ -238,62 +250,72 @@ a
     color: #666;
     font-weight:lighter;
 }
-.uploadfile{
-opacity: 0;
-    position: absolute;
-    overflow: hidden;
-    right: 0;
-    top: 0;
+
+.uploadfile
+{
+	opacity: 0;
+	position: absolute;
+	overflow: hidden;
+	right: 0;
+	top: 0;
 }
 
-.uploadfile p{
-  position: absolute;
-    overflow: hidden;
+.uploadfile p
+{
+	position: absolute;
+	overflow: hidden;
 }
 
-#text{
-color:#666;
-font-weight:lighter;
-font-size:15px;
+#text
+{
+	color:#666;
+	font-weight:lighter;
+	font-size:15px;
 }
 
 
-#Upload {
-    position: relative;
-    overflow: hidden;
-    	width: 120px;
- 	height: 36px;
+#Upload
+{
+	position: relative;
+	overflow: hidden;
+	width: 120px;
+	height: 36px;
 	background: white;
 	border: none;
-  	border-radius: 4px;
+	border-radius: 4px;
 	font-family: Helvetica;
 	font-size: 14px;
 	color: #444;
-  margin-bottom:50px;
+	margin-bottom:50px;
 }
-#Upload:after {
-    content: "";
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    background-image: radial-gradient(circle, #666 10%, transparent 10%);
-    background-repeat: no-repeat;
-    background-position: 50%;
-    transform: scale(10, 10);
-    opacity: 0;
-    transition: .3s, opacity .5s;
+
+#Upload:after
+{
+	content: "";
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	pointer-events: none;
+	background-image: radial-gradient(circle, #666 10%, transparent 10%);
+	background-repeat: no-repeat;
+	background-position: 50%;
+	transform: scale(10, 10);
+	opacity: 0;
+	transition: .3s, opacity .5s;
 }
-#Upload:active:after {
+
+#Upload:active:after
+{
     transform: scale(0, 0);
     opacity: 0.3;
     transition: 0s;
 }
 
-#Tip a{
+#Tip a
+{
   color:red;
 }
 
