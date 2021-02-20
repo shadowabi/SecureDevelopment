@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- 主机： 127.0.0.1
--- 生成日期： 2020-11-19 13:41:58
--- 服务器版本： 10.4.6-MariaDB
--- PHP 版本： 7.3.8
+-- 生成日期： 2021-02-20 09:28:25
+-- 服务器版本： 10.4.17-MariaDB
+-- PHP 版本： 8.0.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -21,7 +20,7 @@ SET time_zone = "+00:00";
 --
 -- 数据库： `secure_development`
 --
-CREATE DATABASE IF NOT EXISTS `secure_development` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+CREATE DATABASE IF NOT EXISTS `secure_development` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_nopad_ci;
 USE `secure_development`;
 
 -- --------------------------------------------------------
@@ -32,9 +31,9 @@ USE `secure_development`;
 
 CREATE TABLE `news` (
   `id` int(1) NOT NULL,
-  `username` text CHARACTER SET ascii NOT NULL,
-  `password` text CHARACTER SET ascii NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `username` mediumtext COLLATE utf8mb4_general_nopad_ci NOT NULL,
+  `password` mediumtext COLLATE utf8mb4_general_nopad_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_nopad_ci;
 
 --
 -- 转存表中的数据 `news`
@@ -52,9 +51,9 @@ INSERT INTO `news` (`id`, `username`, `password`) VALUES
 
 CREATE TABLE `register` (
   `id` int(11) NOT NULL,
-  `username` text CHARACTER SET ascii NOT NULL,
-  `password` text CHARACTER SET ascii NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `username` mediumtext COLLATE utf8mb4_general_nopad_ci NOT NULL,
+  `password` mediumtext COLLATE utf8mb4_general_nopad_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_nopad_ci;
 
 -- --------------------------------------------------------
 
@@ -64,9 +63,9 @@ CREATE TABLE `register` (
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
-  `username` text CHARACTER SET ascii NOT NULL,
-  `password` text CHARACTER SET ascii NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `username` mediumtext COLLATE utf8mb4_general_nopad_ci NOT NULL,
+  `password` mediumtext COLLATE utf8mb4_general_nopad_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_nopad_ci;
 
 --
 -- 转存表中的数据 `users`
@@ -85,9 +84,9 @@ INSERT INTO `users` (`id`, `username`, `password`) VALUES
 CREATE TABLE `xssblind` (
   `id` int(11) UNSIGNED NOT NULL,
   `time` datetime NOT NULL,
-  `content` text CHARACTER SET ascii NOT NULL,
-  `name` text CHARACTER SET ascii NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `content` mediumtext COLLATE utf8mb4_general_nopad_ci NOT NULL,
+  `name` mediumtext COLLATE utf8mb4_general_nopad_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_nopad_ci;
 
 --
 -- 转储表的索引
@@ -117,16 +116,6 @@ ALTER TABLE `users`
 --
 ALTER TABLE `xssblind`
   ADD PRIMARY KEY (`id`);
-
---
--- 在导出的表使用AUTO_INCREMENT
---
-
---
--- 使用表AUTO_INCREMENT `xssblind`
---
-ALTER TABLE `xssblind`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
