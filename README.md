@@ -14,6 +14,7 @@ XAMPP：https://www.apachefriends.org/zh_cn/index.html
 https://www.cnblogs.com/5h4d0w
 
 # 开发日志： 
+2020.21 修复bug  
 2021.2.20 新增反调试功能、合并PR、修改bug  
 2021.2.18 合并PR，调整部分代码，修复bug，增强异常处理  
 2021.1.22 为适配php8对部分代码进行调整  
