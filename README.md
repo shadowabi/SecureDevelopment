@@ -10,9 +10,6 @@ index.html为主页
 # 相关环境推荐：  
 XAMPP：https://www.apachefriends.org/zh_cn/index.html
 
-# 作者博客：  
-https://www.cnblogs.com/5h4d0w
-
 # 开发日志： 
 2020.21 修复bug  
 2021.2.20 新增反调试功能、合并PR、修改bug  
