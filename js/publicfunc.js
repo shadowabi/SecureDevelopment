@@ -3,7 +3,7 @@ var ajaxFlag = 0;
 function GetHtmlName()
 {
     var a = location.href.split('/');
-    a = a[4].split('.');
+    a = a[a.length - 1].split('.');
     return a[0];
 }
 
