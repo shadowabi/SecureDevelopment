@@ -7,7 +7,7 @@
     {
         $data = trim($data);
         $data = stripslashes($data);
-        $data = htmlspecialchars($data);	
+        $data = htmlspecialchars($data, ENT_COMPAT);	
         return strip_tags($data);
     }
 
