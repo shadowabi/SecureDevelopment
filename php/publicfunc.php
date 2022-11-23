@@ -17,7 +17,7 @@
 	function GetFlag($url)
 	{
 		$flag = PurifyData($_POST["Flag"]);
-		$salt = "edbd92baa6a824f0d89a0a817d5dc5dd";
+		$salt = "e10adc3949ba59abbe56e057f20f883e";
 		if ($flag == md5($url.$salt))
 		{
 			echo 1;
@@ -32,7 +32,7 @@
 
 	function FlagShow()
 	{
-		$flag = md5($_SERVER['PHP_SELF'].'edbd92baa6a824f0d89a0a817d5dc5dd');
+		$flag = md5($_SERVER['PHP_SELF'].'e10adc3949ba59abbe56e057f20f883e');
 		echo "<br>flag：$flag";
 		Free($flag);
 		die();
