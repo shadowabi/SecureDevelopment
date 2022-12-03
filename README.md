@@ -11,6 +11,7 @@ index.html为主页
 XAMPP：https://www.apachefriends.org/zh_cn/index.html
 
 # 开发日志： 
+2022.12.3 修复bug
 2022.11.23 修复bug，优化js  
 2021.2.21 修复bug  
 2021.2.20 新增反调试功能、合并PR、修改bug  
